@@ -1,0 +1,4 @@
+.vagrant
+linux-amd64
+helm*.tar.gz
+ubuntu-*
