@@ -35,31 +35,6 @@ docker:
     - watch:
       - pkg: docker-ce
 
-# get-compose:
-#   cmd.run:
-#     - name: |
-#         curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-#         chmod +x /usr/local/bin/docker-compose
-#     - unless: docker-compose --version | grep -q 1.14.0
-
-# get-compose-completion:
-#   cmd.wait:
-#     - name: |
-#         curl -L https://raw.githubusercontent.com/docker/compose/1.14.0/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
-#     - watch:
-#       - cmd: get-compose
-
-compose-pip:
-  pkg.installed:
-    - name: python-pip
-  pip.installed:
-    - name: pip
-    - upgrade: True
-
-compose:
-  pip.installed:
-    - name: docker-compose
-
 docker-group:
   group.present:
     - name: docker
